@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export NETCDF=/opt/homebrew
+export NETCDFHOME=/opt/homebrew
 export LAPACKHOME=/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/
 export FC=/opt/homebrew/bin/gfortran-15
 export CC=/opt/homebrew/bin/gcc-15

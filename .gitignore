@@ -18,3 +18,9 @@ docs/build/
 anaconda_projects/
 modovmc
 pestotv
+src/DCON/rdcon_fortran/bin/
+src/DCON/rdcon_fortran/lib/
+pentrc
+src/DCON/rdcon_fortran/pentrc
+dcon
+rdcon
