@@ -1,0 +1,1 @@
+      CHARACTER(len=*), PARAMETER :: version =''
