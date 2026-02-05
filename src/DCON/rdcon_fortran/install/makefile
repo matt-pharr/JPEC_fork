@@ -16,22 +16,22 @@ all: v equil lsode vacuum rdcon pentrc dcon
 
 # executables:
 
-lsode:
+lsode: equil
 	cd ../lsode;  $(MAKE)
 
 equil:
 	cd ../equil;  $(MAKE)
 
-vacuum:
+vacuum: equil
 	cd ../vacuum; $(MAKE)
 
-rdcon:
+rdcon: equil lsode vacuum
 	cd ../rdcon;   $(MAKE)
 
-pentrc:
+pentrc: equil lsode vacuum
 	cd ../pentrc;  $(MAKE)
 
-dcon:
+dcon: equil lsode vacuum pentrc
 	cd ../dcon;    $(MAKE)
 
 # print verbose info

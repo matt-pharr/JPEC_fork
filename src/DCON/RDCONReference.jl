@@ -133,10 +133,12 @@ function build_rdcon_fortran!(; force=false)
         error("RDCON build skipped but executable is missing at $(exe_path)")
     end
     if isfile(exe_path) && !force
+        @info "RDCON executable already exists at $(exe_path)."
         return exe_path
     end
-    rdcon_dir = joinpath(rdcon_fortran_root(), "rdcon")
+    rdcon_dir = joinpath(rdcon_fortran_root(), "install")
     run(`make -C $rdcon_dir`)
+    @info "Built RDCON Fortran executable at $(exe_path)"
     return exe_path
 end
 
