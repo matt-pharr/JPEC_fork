@@ -82,7 +82,8 @@ export FFLAGS='-fallow-argument-mismatch -O0 -g -fcheck=all,no-array-temps -fbac
 make all
 ```
 
-Ensure the NetCDF Fortran and OpenBLAS development headers are installed (e.g., `netcdf.mod` should be under `$NETCDF_FORTRAN_HOME/include`). The `FFLAGS` line mirrors the agent debug configuration; adjust locally if you want to remove redundant bounds checks.
+Ensure the NetCDF Fortran and OpenBLAS development headers are installed (e.g., `netcdf.mod` should be under `$NETCDF_FORTRAN_HOME/include`).
+The `FFLAGS` line mirrors the agent debug configuration; adjust locally if you want to remove redundant bounds checks.
 
 ### C) Output normalization
 - Identify which Fortran outputs are available for RDCON in this repository (netCDF, stdout, binary).
