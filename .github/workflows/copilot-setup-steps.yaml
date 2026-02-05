@@ -41,9 +41,22 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gfortran libopenblas-dev
+          sudo apt-get install -y libnetcdf-dev libnetcdff-dev
+      
       
       - name: Build Julia project
         run: julia --project="." -e "using Pkg; Pkg.build()"
       
       - name:  Instantiate Julia environment
         run: julia --project="." -e "using Pkg; Pkg.instantiate()"
+
+      - name: Build Fortran comparison code
+        run: |
+          cd src/DCON/rdcon_fortran/install
+          export NETCDF_C_HOME=/usr
+          export NETCDF_FORTRAN_HOME=/usr
+          export OPENBLASHOME=/usr
+          export FC=/usr/bin/gfortran
+          export CC=/usr/bin/gcc
+          export FFLAGS='-fallow-argument-mismatch -O0 -g -fcheck=all,no-array-temps -fbacktrace -finit-real=snan -finit-integer=-9999 -fstack-protector-all -fsanitize=bounds -Wno-array-temporaries -Wno-unused-variable -Wno-unused-dummy-argument -Wno-compare-reals -Wno-unused-parameter -Wno-unused-label -fno-omit-frame-pointer -frecord-marker=4 -gdwarf-4 -ffloat-store -fbounds-check'
+          make all
