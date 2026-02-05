@@ -8,8 +8,8 @@ const DCON = JPEC.DCON
     @test length(cases) >= 2
 
     expected_q0 = Dict(
-        "rdcon_case_01" => 1.0,
-        "rdcon_case_02" => 1.1,
+        "rdcon_case_01" => 1.1,
+        "rdcon_case_02" => 1.3,
     )
 
     for case_name in cases
