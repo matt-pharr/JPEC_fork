@@ -160,12 +160,29 @@ Clone it from GitHub directly to your virtual machine.
             ```
 
         6. VS Code also lets you open `.ipynb` notebooks in the WSL environment using the Jupyter extension. Click the "Select Kernel" button in the top right hand of the `.ipynb` file and select the Julia kernel installed in WSL.All dependencies (libspline.so, Julia packages) are accessible.
-    3.  Run JPEC
+3.  Run JPEC
         1. Make sure you are in WSL terminal, with `LD_LIBRARY_PATH` set to include deps.
         2. Launch Julia and run your scripts as usual:
             ```shell
             include("path/to/jpec_script.jl")
             ```
+
+## RDCON Fortran reference fixtures
+
+RDCON reference fixtures rely on the Fortran executable in `src/DCON/rdcon_fortran/rdcon`.
+You will need a Fortran compiler and netCDF libraries available when rebuilding the executable.
+
+1. Build the RDCON Fortran executable:
+    ```shell
+    julia --project=. -e 'using JPEC.DCON; DCON.build_rdcon_fortran!()'
+    ```
+2. Run a reference case and regenerate its fixture:
+    ```shell
+    julia --project=. -e 'using JPEC.DCON; DCON.run_rdcon_reference("rdcon_case_01")'
+    ```
+3. Repeat for additional cases (e.g., `rdcon_case_02`) as needed.
+
+To skip rebuilding when the executable already exists, set `JPEC_RDCON_SKIP_BUILD=1`.
 
 ## On macOS
 

@@ -1,0 +1,9 @@
+case_name = "rdcon_case_01"
+description = "Soloviev equilibrium with small grid for RDCON reference harness."
+expected_runtime_s = 5.0
+source = "Placeholder fixture; regenerate using Fortran RDCON runner."
+assumptions = [
+  "Requires Fortran RDCON build with netCDF support.",
+  "Outputs deterministic for Soloviev input on supported platforms."
+]
+inputs = ["equil.in", "rdcon.in", "sol.in"]

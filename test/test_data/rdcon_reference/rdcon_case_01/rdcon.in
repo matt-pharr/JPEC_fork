@@ -1,0 +1,18 @@
+&rdcon_control
+  nn = 1
+  mat_flag = .true.
+  ode_flag = .false.
+  vac_flag = .false.
+  gal_flag = .false.
+  regrid_flag = .true.
+  fft_flag = .true.
+  qlow = 0.0
+  qhigh = 10.0
+  sing_start = 0
+/
+&rdcon_output
+  netcdf_out = .true.
+  verbose = .false.
+/
+&ua_diagnose_list
+/

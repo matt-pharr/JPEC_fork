@@ -1,0 +1,16 @@
+&equil_control
+  eq_filename = "sol.in"
+  eq_type = "soloviev"
+  grid_type = "ldp"
+  mpsi = 24
+  mtheta = 24
+  sp_nx = 24
+  sp_dx1 = 2e-3
+  sp_dx2 = 2e-3
+  sp_pfac = 1.0
+  use_galgrid = .true.
+  jac_type = "hamada"
+/
+&equil_output
+  verbose = .false.
+/

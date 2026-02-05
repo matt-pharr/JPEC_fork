@@ -1,0 +1,12 @@
+&sol_input
+  mr = 8
+  mz = 8
+  ma = 8
+  e = 1.4
+  a = 0.4
+  r0 = 1.7
+  q0 = 1.1
+  p0fac = 1.0
+  b0fac = 1.0
+  f0fac = 1.0
+/
