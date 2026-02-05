@@ -85,6 +85,12 @@ make all
 Ensure the NetCDF Fortran and OpenBLAS development headers are installed (e.g., `netcdf.mod` should be under `$NETCDF_FORTRAN_HOME/include`).
 The `FFLAGS` line mirrors the agent debug configuration; adjust locally if you want to remove redundant bounds checks.
 
+If needed on a fresh Ubuntu runner, install the NetCDF headers with:
+
+```shell
+sudo apt-get install -y libnetcdf-dev libnetcdff-dev
+```
+
 ### C) Output normalization
 - Identify which Fortran outputs are available for RDCON in this repository (netCDF, stdout, binary).
 - Build a normalization step that:
