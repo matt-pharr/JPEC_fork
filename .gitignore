@@ -11,6 +11,7 @@
 *.pdf
 *.png
 *.jld2
+!test/test_data/rdcon_reference/**/*.jld2
 .gitattributes
 Manifest.toml
 build.log

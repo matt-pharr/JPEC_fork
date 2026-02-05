@@ -70,6 +70,27 @@ Establish a repeatable test harness that runs the Fortran RDCON executables on f
   - runs the executable with the selected input case
   - writes outputs to a deterministic location
 
+When building on the agent host, use the following environment overrides before running `make all`:
+
+```shell
+export NETCDF_C_HOME=/usr
+export NETCDF_FORTRAN_HOME=/usr
+export OPENBLASHOME=/usr
+export FC=/usr/bin/gfortran
+export CC=/usr/bin/gcc
+export FFLAGS='-fallow-argument-mismatch -O0 -g -fcheck=all,no-array-temps -fbacktrace -finit-real=snan -finit-integer=-9999 -fstack-protector-all -fsanitize=bounds -Wno-array-temporaries -Wno-unused-variable -Wno-unused-dummy-argument -Wno-compare-reals -Wno-unused-parameter -Wno-unused-label -fno-omit-frame-pointer -frecord-marker=4 -gdwarf-4 -ffloat-store -fbounds-check'
+make all
+```
+
+Ensure the NetCDF Fortran and OpenBLAS development headers are installed (e.g., `netcdf.mod` should be under `$NETCDF_FORTRAN_HOME/include`).
+The `FFLAGS` line mirrors the agent debug configuration; adjust locally if you want to remove redundant bounds checks.
+
+If needed on a fresh Ubuntu runner, install the NetCDF headers with:
+
+```shell
+sudo apt-get install -y libnetcdf-dev libnetcdff-dev
+```
+
 ### C) Output normalization
 - Identify which Fortran outputs are available for RDCON in this repository (netCDF, stdout, binary).
 - Build a normalization step that:
